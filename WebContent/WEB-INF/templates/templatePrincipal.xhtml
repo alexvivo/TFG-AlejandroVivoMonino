@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<title>AVMusic - Siente tu música</title>
+<link rel="icon" href="img/favicon.png"></link>
+<!-- CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+<link rel="stylesheet" href="css/principal.css"></link>
+<link rel="stylesheet" href="css/favorites.css"></link>
+<link rel="stylesheet" href="css/player.css"></link>
+<link rel="stylesheet" href="css/jquery-confirm.min.css"></link>
+</head>
+
+<body>
+
+	<div id="nav">
+		<ui:insert name="nav">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- Barra de Navegacion Lateral -->
+					<div id="sidebar" class="col-sm-3 col-md-3 col-lg-2 sidebar">
+						<a href="index.xhtml" id="index-image"><img
+							src="img/logo.jpg" class="img-responsive" width="100px"></img></a>
+						<div class="form-group has-feedback">
+							<h:form>
+								<h:inputText value="#{beanBuscar.cadenaBusqueda}"
+									p:placeholder="Buscar"></h:inputText>
+								<h:commandButton value="Buscar" action="#{beanBuscar.buscar}"></h:commandButton>
+							</h:form>
+
+						</div>
+						<ul class="nav nav-sidebar" aria-hidden="true">
+							<li class="active"><a href="index.xhtml" id="index">INICIO</a>
+							</li>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-xs-12">
+										<h:form>
+											<h:commandButton value="Cerrar sesión"
+												action="#{beanLogin.logout}"
+												class="btn btn-info center-block">
+											</h:commandButton>
+										</h:form>
+									</div>
+								</div>
+							</div>
+							<li><a href="favorites.xhtml"> Mis favoritas </a></li>
+							<li><a href="playlists.xhtml"> Playlists </a></li>
+							<li><a href="albums.xhtml"> Álbumes </a></li>
+							<li><a href="artists.xhtml"> Artistas </a></li>
+							<li><a href="activity.xhtml"> Actividad </a></li>
+						</ul>
+						<div>
+							<h:form>
+								<img src="#{beanReproductor.imgReproduciendo}" width="200" height="200"></img>
+								<h:commandButton image="img/backward.png" action="#{beanReproductor.anteriorCancion()}"></h:commandButton>
+								<h:commandButton image="#{beanReproductor.playOPause}" 
+								action="#{beanReproductor.playOPause()}"></h:commandButton>
+								<h:commandButton image="img/forward.png" action="#{beanReproductor.siguienteCancion()}"></h:commandButton>
+								<br></br>
+								#{beanReproductor.reproduciendo}
+							</h:form>
+						</div>
+					</div>
+						
+				</div>
+						
+					<!-- Fin Barra de Navegacion Lateral -->
+					<!-- Barra Flotante Aparece Oculta display: none -->
+					<!-- Aparece oculta en moviles -->
+					<div
+						class="col-sm-offset-3 col-md-offset-3 col-lg-offset-2 col-sm-3 col-md-3 col-lg-3 float-bar"
+						id="float-bar">
+						<!-- CONTENIDO BARRA FLOTANTE -->
+						<div class="container-fluid" id="float-bar-content"></div>
+						<!-- FIN CONTENIDO BARRA FLOTANTE -->
+					</div>
+					<!-- FIN Floatbar -->
+					<div id="float-bar-overlay" class="float-bar-overlay"
+						onclick="floatBar.hidePanel()"></div>
+					<!-- Contenido Principal -->
+					<div id="main"
+						class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-3 col-lg-offset-2 main">
+					</div>
+					<!-- Fin Contenido Principal -->
+				</div>
+				</ui:insert>
+				<!-- FIN ROW -->
+			</div>
+			<!-- FIN container -->
+		
+	
+
+	<div id="content"
+		class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-3 col-lg-offset-2 main">
+		<ui:insert name="content">
+
+		</ui:insert>
+	</div>
+
+
+</body>
+
+</html>

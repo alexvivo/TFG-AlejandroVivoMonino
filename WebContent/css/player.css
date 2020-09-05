@@ -1,0 +1,44 @@
+.sidebar .player {
+	position: absolute;
+	bottom: 0;
+	min-height: 230px;
+	width: 100%;
+	background-color: #6A6A6A;
+	margin-left: -15px;
+	background-image: url("../img/cover/db.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.player .player-info .row {
+	margin-left: 10px;
+	font-size: 14pt;
+}
+
+.player-btn {
+	background-color: #23232c;
+	color: #C2C2CA;
+	margin-left: -15px;
+}
+
+.player-btn .btn, .player-btn .btn:hover, .player-btn .btn:focus {
+	color: #C2C2CA;
+	padding: 6px 0px 6px 0px;
+}
+
+.player .player-info {
+	height: 150px;
+	background-color: rgba(25, 25, 34, 0.5)
+}
+
+.player .player-change {
+	height: 50px;
+}
+
+.player .player-opt .glyphicon {
+	font-size: 12pt;
+}
+
+.player .player-change .glyphicon {
+	font-size: 24pt;
+}

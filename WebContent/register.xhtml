@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="WEB-INF/templates/templateRegister.xhtml">
+	
+	<ui:define name="content">
+		<body class="contenedor login">
+			<div id="particles-js"></div>
+
+
+			<!--Formulario-->
+			<div class="row">
+				<h:form class="form-signin">
+					<br>
+						<table>
+							<tr>
+								<td colspan="2"><em> <h:inputText type="email"
+											value="#{beanRegistrar.email}" id="inputEmail"
+											class="form-control" p:placeholder="Correo Electronico"
+											required="required" autofocus="autofocus" size="100"></h:inputText></em></td>
+							</tr>
+							<tr>
+								<td colspan="2"><em> <h:inputSecret type="password"
+											value="#{beanRegistrar.contraseña}" id="inputPassword"
+											class="form-control" p:placeholder="Contraseña"
+											required="required" size="100"></h:inputSecret></em></td>
+							</tr>
+							<tr>
+								<td colspan="2"><em> <h:inputText type="text"
+											id="inputText" value="#{beanRegistrar.usuario}"
+											class="form-control" p:placeholder="Nombre de usuario"
+											required="required" size="100"></h:inputText></em></td>
+							</tr>
+							<tr>
+								<td colspan="2"><em> <h:inputText type="text"
+											id="inputDate" value="#{beanRegistrar.fecha}"
+											class="form-control"
+											p:placeholder="Fecha de nacimiento (DD/MM/YYYY)"
+											required="required" size="100"></h:inputText></em></td>
+							</tr>
+						</table> </br>
+					<h6></h6>
+					<div id="div-mensaje"
+						style="-webkit-border-radius: 0px 20px 20px 40px; box-shadow: 3px 5px 4px 2px rgb(215, 234, 239);; background-color: rgb(243, 247, 242); padding: 5px; display: none; text-align: center; font-size: 12px; margin: 0px 28px 0px 28px; border:">
+					</div>
+					<br> <h:commandButton value="Registrarse"
+							action="#{beanRegistrar.registrar}"
+							class="btn btn-info btn-block"
+							style="font-size: 12px; position: relative;"></h:commandButton> </br>
+				</h:form>
+			</div>
+
+		</body>
+	</ui:define>
+</ui:composition>
+</html>

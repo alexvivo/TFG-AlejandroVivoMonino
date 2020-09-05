@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="WEB-INF/templates/templateLogin.xhtml">
+	<ui:define name="content">
+		<body class="contenedor login">
+			<div id="particles-js"></div>
+			
+
+			<!--Formulario-->
+			<div class="row">
+				<h:form class="form-signin">
+					<br>
+						<table>
+							<tr>
+								<td><em> <h:inputText value="#{beanLogin.usuario}"
+											type="text" style="padding: 15px 90px 15px 93px;"
+											id="inputText" class="form-control"
+											p:placeholder="Nombre de usuario"></h:inputText></em></td>
+							</tr>
+							<tr>
+								<td><em> <h:inputSecret value="#{beanLogin.clave}"
+											type="password" style="padding: 15px 90px 15px 93px;"
+											id="inputPassword" class="form-control"
+											p:placeholder="Contraseña"></h:inputSecret></em> <br>
+										<div id="div-mensaje"
+											style="-webkit-border-radius: 0px 20px 20px 40px; box-shadow: 3px 5px 8px 2px rgb(215, 234, 239);; background-color: rgb(243, 247, 242); padding: 5px; display: none; text-align: center; font-size: 12px;">
+										</div> </br></td>
+							</tr>
+
+						</table> </br>
+					<h6></h6>
+					<h:commandButton value="Conectarse" id="btn-conexion"
+						class="btn btn-info btn-block" action="#{beanLogin.login}"
+						style="font-size: 12px; position: relative;">
+					</h:commandButton>
+				</h:form>
+			</div>
+
+		</body>
+	</ui:define>
+</ui:composition>
+</html>

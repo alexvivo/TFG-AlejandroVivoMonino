@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="WEB-INF/templates/templatePrincipal.xhtml">
+	<ui:define name="content">
+		<div class="container-fluid">
+			<!--Barra de usuario-->
+			<h4>Resultados búsqueda de artistas</h4>
+			<!--Fin Barra de usuario-->
+
+			<!--Barra de navegacion-->
+			<div class="row col-lg-12" style="margin-top: 50px">
+				<div class="col-lg-1 col-md-0"></div>
+				<div class="col-lg-10 col-md-12">
+					<nav class="navbar navbar-center">
+					<div class="container-fluid">
+						<ul class="nav navbar-nav">
+							<li><a href="songSearch.xhtml">Canciones</a></li>
+							<li><a href="playlistSearch.xhtml">Playlists</a></li>
+							<li><a href="albumSearch.xhtml">Álbumes</a></li>
+							<li><a href="artistSearch.xhtml">Artistas</a></li>
+						</ul>
+					</div>
+					</nav>
+				</div>
+				<div class="col-lg-0"></div>
+
+			</div>
+			<!-- Fin barra de navegacion-->
+
+
+			<!--Tabla-->
+
+			<h:form>
+				<h:dataTable value="#{beanBuscar.resultadosArtistas}" var="artista"
+					styleClass="table table-striped table-responsive table-hover"
+					headerClass="th">
+
+					<h:column>
+						<f:facet name="header">Nombre Artista</f:facet>
+						<h:commandLink
+							action="#{beanListarArtista.listarArtista(artista.nombre)}">
+		  			#{artista.nombre}
+		  			</h:commandLink>
+					</h:column>
+					<h:column>
+						<h:commandButton
+							image="#{beanMarcarOQuitarArtistaFavorito.setImagenBoton(artista.nombre, artista.nombre)}"
+							action="#{beanMarcarOQuitarArtistaFavorito.marcarOQuitarArtistaFavorito(artista.nombre)}">
+						</h:commandButton>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+
+			<!--Fin de tabla-->
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
